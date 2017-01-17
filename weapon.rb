@@ -13,10 +13,14 @@ class Weapon
     (@dmg.min + @dmg.max) / 2
   end
 
+  def dmg_per_hit
+    avg_dmg
+  end
+
   def dps(period:10)
     period = period * 1000
     hits = (period / @fire_delay).ceil
-    avg_dmg * hits * shots
+    dmg_per_hit * hits * shots
   end
 
 end
