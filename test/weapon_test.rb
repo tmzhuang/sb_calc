@@ -7,6 +7,6 @@ class WeaponTest < Minitest::Test
   end
 
   def test_soidal_dps
-    assert_equal @soidal.dps, 2800
+    assert_equal 2800, @soidal.dps
   end
 end

@@ -7,8 +7,20 @@ class FabricatorWeapon < Weapon
     @duration = duration
   end
 
-  def damage_per_hit
-    dances_per_hit = (@duration/@cycle).ceil
+  def dmg_per_hit
+    dances_per_hit = (@duration / @cycle.to_f).ceil
     avg_dmg * dances_per_hit
+  end
+
+  def clone
+    FabricatorWeapon.new(min: @min,
+                         max: @max,
+                         fire_delay: @fire_delay,
+                         shots: @shots,
+                         crit: @crit,
+                         critd: @critd,
+                         ap: @ap,
+                         cycle: @cycle,
+                         duration: @duration)
   end
 end
